@@ -72,6 +72,22 @@ public class AxisPointer implements Serializable {
     private TextStyle textStyle;
 
     /**
+     * label显示
+     */
+    private Label label;
+
+    public Label label(){
+        if (this.label == null){
+            this.label = new Label();
+        }
+        return label;
+    }
+
+    public void setLabel(Label label){
+        this.label = label;
+    }
+
+    /**
      * 获取textStyle值
      */
     public TextStyle textStyle() {

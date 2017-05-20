@@ -25,7 +25,9 @@
 package com.github.abel533.echarts.axis;
 
 import com.github.abel533.echarts.AbstractData;
+import com.github.abel533.echarts.AxisPointer;
 import com.github.abel533.echarts.Component;
+import com.github.abel533.echarts.Tooltip;
 import com.github.abel533.echarts.code.AxisType;
 import com.github.abel533.echarts.code.X;
 import com.github.abel533.echarts.code.Y;
@@ -60,6 +62,10 @@ public abstract class Axis<T> extends AbstractData<T> implements Component {
      * 坐标轴名称，默认为空
      */
     private String name;
+    /**
+     * 坐标轴指示器，坐标轴触发有效
+     */
+    private AxisPointer axisPointer;
     /**
      * 坐标轴线，默认显示，属性show控制显示与否，属性lineStyle（详见lineStyle）控制线条样式
      *
@@ -413,6 +419,16 @@ public abstract class Axis<T> extends AbstractData<T> implements Component {
     }
 
     /**
+     * 坐标轴指示器，坐标轴触发有效
+     */
+    public AxisPointer axisPointer() {
+        if (this.axisPointer == null) {
+            this.axisPointer = new AxisPointer();
+        }
+        return this.axisPointer;
+    }
+
+    /**
      * 设置axisLine值
      *
      * @param axisLine
@@ -420,6 +436,16 @@ public abstract class Axis<T> extends AbstractData<T> implements Component {
     public T axisLine(AxisLine axisLine) {
         this.axisLine = axisLine;
         return (T) this;
+    }
+
+    /**
+     * 设置axisPointer值
+     *
+     * @param axisPointer
+     */
+    public<T> T axisPointer(AxisPointer axisPointer) {
+        this.axisPointer = axisPointer;
+        return (T)this;
     }
 
     /**

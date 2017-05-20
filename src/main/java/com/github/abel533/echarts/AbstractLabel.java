@@ -76,6 +76,16 @@ public abstract class AbstractLabel<T> implements Serializable {
     private String color;
 
     /**
+     * 背景色
+     */
+    private String backgroundColor;
+
+    public T backgroundColor(String backgroundColor){
+        this.backgroundColor = backgroundColor;
+        return (T) this;
+    }
+
+    /**
      * 设置textStyle值
      *
      * @param textStyle
